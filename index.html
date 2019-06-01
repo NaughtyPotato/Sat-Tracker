@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="./style/index.css">
+    <title>ISS Tracker</title>
+</head>
+<body>
+    <div class="map-info">
+        <div id="map">
+            <!-- MAP GOES HERE -->
+        </div>
+        <div id="text" class="text">
+            <h1 id="page-header"><i class="fas fa-map-marker-alt"></i> Realtime Tracking of the ISS</h1>
+            <div class="numbers-for-nerds">
+                <p>Sat ID : <span id="iss-id">--</span></p>
+                <p>Latitude : <span id="iss-latitude">--</span></p>
+                <p>Longitude : <span id="iss-longitude">--</span></p>
+                <p>Altitude : <span id="iss-altitude">--</span></p>
+                <p>Velocity : <span  id="iss-velocity">--</span></p>
+                <p>Visibility : <span  id="iss-visibility">--</span></p>
+                <p>Observability : <span  id="iss-observability">--</span></p>
+                <!-- <div style='display:inline-block; border: 1px solid #CCC; border-radius: 6px; -webkit-border-radius: 6px; -o-border-radius: 6px; position: relative; overflow: hidden; width: 310px; height: 450px;'><iframe src='https://spotthestation.nasa.gov/widget/widget2.cfm' width='310' height='450' frameborder='0' ></iframe></div> -->
+                <i onclick="ShowHide('credit-tab')" id="heart" class="fas fa-heart"></i>
+                <div id="credit-tab">
+                    <p id="close-icon" onclick="CloseTab('credit-tab')">x</p>
+                    <p id="iss-tracker">ISS Tracker API courtesy of <a href="https://wheretheiss.at" target="_blank">WhereTheISS.at</a></p>
+                    <p>Awesome Icons provided By <a href="https://fontawesome.com/">FontAwesome.com</a></p>
+                    <p>Icon Animation By Daneden <a href="https://daneden.github.io/animate.css/">Animate.css</a></p>
+                    <p>Made with <i class="fas fa-heart"></i> By <a href="https://github.com/NaughtyPotato" target="_blank">NaughtyPotato</a></p>
+                </div>
+                <i onclick="ShowHide('settings-tab')" id="settings" class="fas fa-wrench"></i>
+                <div id="settings-tab">
+                    <p id="close-icon" onclick="CloseTab('settings-tab')">x</p>
+                    <p>Units :</p>
+                    <div id="toggle" class="units-switch">
+                        <input onclick="UnitSwitch(this.id)" type="checkbox" class="onoffswitch-checkbox" id="units-switch" checked>
+                        <label class="onoffswitch-label" for="units-switch">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                    <p>Camera :</p>
+                    <div id="toggle" class="center-switch">
+                        <input onclick="CenterISS(this.id)" type="checkbox" class="onoffswitch-checkbox" id="center-switch" checked>
+                        <label class="onoffswitch-label" for="center-switch">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                    <p>Trajectory :</p>
+                    <div id="toggle" class="path-switch">
+                        <input onclick="PathISS(this.id)" type="checkbox" class="onoffswitch-checkbox" id="path-switch">
+                        <label class="onoffswitch-label" for="path-switch">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+    <script src="./index.js"></script>
+    <script src="./fun.js"></script>
+</body>
+</html>

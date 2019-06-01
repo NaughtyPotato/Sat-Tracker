@@ -1,0 +1,20 @@
+{
+  "name": "iss-tracker",
+  "version": "0.8.5",
+  "description": "An exercise to fetch data from a REST API and utilize it to update DOM elements.",
+  "main": "index.html",
+  "scripts": {
+    "test": "null"
+  },
+  "repository": {
+    "type": "git",
+    "url": "null"
+  },
+  "keywords": [
+    "ISS",
+    "TRACKER",
+    "API"
+  ],
+  "author": "NaughtyPotato",
+  "license": "MIT"
+}
