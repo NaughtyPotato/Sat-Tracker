@@ -41,3 +41,16 @@ function CloseTab(id) {
     const tab = document.getElementById(id);
     tab.style.display = 'none';
 }
+function Geolocate() {
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(position => {
+            console.log(position.coords);
+            const userPoint = new L.marker([position.coords.latitude, position.coords.longitude], {
+                title: 'Your current location'
+            });
+            userPoint.addTo(mapDisplay);
+        });
+      } else {
+        alert('Position not available');
+      }
+}

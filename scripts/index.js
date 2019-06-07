@@ -94,4 +94,4 @@ async function UpdateData(){
 
 setInterval(() => {
     UpdateData();
-}, 1000);
+}, 1500);
